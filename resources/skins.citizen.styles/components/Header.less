@@ -11,7 +11,7 @@
 	flex-direction: var( --header-direction );
 	gap: var( --space-xxs );
 	padding: ~'var( --space-xs ) max( env( safe-area-inset-right ), var( --space-xs ) ) max( env( safe-area-inset-bottom ), var( --space-xs ) ) max( env( safe-area-inset-left ), var( --space-xs ) )';
-	background-color: var( --color-surface-0 );
+	/* background-color: var( --color-surface-0 ); */
 	border-color: var( --border-color-base );
 	border-style: solid;
 	border-width: 0;
@@ -19,6 +19,14 @@
 	border-block-end-width: var( --header-border-block-end-width );
 	border-inline-start-width: var( --header-border-inline-start-width );
 	border-inline-end-width: var( --header-border-inline-end-width );
+
+	&::before {
+		position: absolute;
+		inset: 0;
+		content: '';
+		z-index: -1;
+		.mixin-citizen-frosted-glass();
+	}
 
 	&__item {
 		display: flex;
@@ -73,11 +81,6 @@
 	}
 
 	&__logo {
-		padding: 0 var( --space-xs ) 0 0;
-		margin: 0 var( --space-xxs );
-		border: 0 solid var( --border-color-subtle );
-		border-right-width: var( --border-width-base );
-
 		img {
 			margin: auto;
 		}
@@ -86,6 +89,19 @@
 			position: absolute;
 			inset: 0;
 		}
+	}
+
+	> .mw-logo-wordmark {
+		padding: 0 var( --space-md ) 0 var( --space-xs ); 
+		/* margin: 0 var( --space-xxs ) 0 0; */
+		border: 0 solid var( --border-color-subtle );
+		border-right-width: var( --border-width-base );
+		color: var( --color-subtle );
+		font-size: var( --font-size-large ); 
+		font-weight: 300;
+		display: flex;
+		align-items: center;
+		height: stretch;
 	}
 
 	&__inner {
@@ -195,6 +211,7 @@
 
 		.citizen-header-position-top & {
 			padding: var( --space-xs ) var( --space-xxl );
+			align-items: center;
 		}
 	}
 }

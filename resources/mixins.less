@@ -13,8 +13,10 @@
 	}
 }
 
-.mixin-citizen-frosted-glass( @surface: 1 ) {
-	.mixin-citizen-opaque-background( @surface );
+.mixin-citizen-frosted-glass(@surface: 1, @fixedBG: true) {
+	& when (@fixedBG ) {
+		.mixin-citizen-opaque-background( @surface );
+	}
 	-webkit-backdrop-filter: var( --backdrop-filter-frosted-glass );
 	backdrop-filter: var( --backdrop-filter-frosted-glass );
 }

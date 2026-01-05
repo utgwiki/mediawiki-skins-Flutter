@@ -1,8 +1,11 @@
 .citizen-page-header {
 	position: relative;
 	z-index: @z-index-above-content;
-	padding-inline: var( --padding-page );
-	margin-top: var( --space-xl );
+	padding-block: calc( var( --header-size-block-start ) * 1.5 ) var( --space-md );
+
+	background-image: url(https://microsoft.design/wp-content/uploads/2025/07/Brand-Flowers-Static-1.png);
+	background-size: cover;
+	background-attachment: fixed;
 
 	&-inner {
 		display: flex;
@@ -10,13 +13,20 @@
 		gap: var( --space-md );
 		align-items: center;
 		max-width: var( --width-layout ); // max-width should sync with .citizen-body-container
-		padding-block: var( --space-md );
+		padding: var( --space-lg ) var( --space-xxl );
 		margin-inline: auto;
+		border-radius: var( --border-radius-large );
+		.mixin-citizen-frosted-glass();
+		transition: 500ms backdrop-filter;
 
 		@media ( min-width: @min-width-breakpoint-desktop ) {
 			.citizen-toc-enabled & {
 				max-width: var( --width-page );
 			}
+		}
+
+		&:hover {
+			backdrop-filter: unset;
 		}
 	}
 }
