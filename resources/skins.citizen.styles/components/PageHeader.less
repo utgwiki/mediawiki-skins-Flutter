@@ -1,7 +1,8 @@
 .citizen-page-header {
 	position: relative;
 	z-index: @z-index-above-content;
-	padding-block: calc( var( --header-size-block-start ) * 1.5 ) var( --space-md );
+	padding-block: calc( var( --header-size-block-start ) * 3 ) var( --space-md );
+	padding-bottom: 0;
 
 	background-image: url(https://microsoft.design/wp-content/uploads/2025/07/Brand-Flowers-Static-1.png);
 	background-size: cover;
@@ -15,14 +16,27 @@
 		max-width: var( --width-layout ); // max-width should sync with .citizen-body-container
 		padding: var( --space-lg ) var( --space-xxl );
 		margin-inline: auto;
-		border-radius: var( --border-radius-large );
-		.mixin-citizen-frosted-glass();
-		transition: 500ms backdrop-filter;
+		border-radius: var( --border-radius-large ) var( --border-radius-large ) 0 0;
 
 		@media ( min-width: @min-width-breakpoint-desktop ) {
-			.citizen-toc-enabled & {
+			/* .citizen-toc-enabled & {
 				max-width: var( --width-page );
+			} */
+
+			position: relative;
+
+			&::after {
+				position: absolute;
+				inset: 0;
+				content: '';
+				.mixin-citizen-frosted-glass( 0 );
+				border-radius: inherit;
+				z-index: -2;
 			}
+		}
+
+		@media ( max-width: @min-width-breakpoint-desktop ) {
+			background: var( --color-surface-0 );
 		}
 
 		&:hover {
@@ -60,5 +74,11 @@
 	&-parenthesis {
 		color: var( --color-subtle );
 		.mixin-citizen-font-styles( 'heading-4' );
+	}
+}
+
+@media ( min-width: @min-width-breakpoint-desktop ) {
+	.citizen-page-header .page-actions {
+		display: none;
 	}
 }

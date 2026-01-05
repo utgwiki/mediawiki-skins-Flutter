@@ -111,7 +111,7 @@
 		gap: var( --space-xxs );
 		justify-content: space-between;
 		min-width: 0;
-		overflow-x: auto;
+		// overflow-x: auto;
 	}
 
 	&__start,
@@ -130,6 +130,7 @@
 	&__start {
 		align-items: center;
 		min-width: 0;
+		justify-content: center;
 	}
 
 	.citizen-dropdown {
@@ -155,6 +156,10 @@
 			content: '';
 			.mixin-citizen-frosted-glass;
 		}
+	}
+
+	.flutter-header__tools {
+		display: none;
 	}
 }
 

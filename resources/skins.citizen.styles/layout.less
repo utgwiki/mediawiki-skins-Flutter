@@ -21,7 +21,7 @@
 	grid-template-columns: minmax( 0, var( --width-layout ) );
 	gap: 0 var( --space-lg );
 	justify-content: center;
-	padding: 0 var( --padding-page );
+	padding: var( --space-xl ) var( --padding-page );
 	// Bottom margin is added because data-after-content cannot
 	margin-bottom: var( --space-xl );
 }
@@ -39,7 +39,7 @@
 @media ( min-width: @min-width-breakpoint-desktop ) {
 	.citizen-page-container {
 		// Reserve space for header
-		padding-block: var( --header-size-block-start ) var( --header-size-block-end );
+		padding-block: 0 var( --header-size-block-end );
 		padding-inline: var( --header-size-inline-start ) var( --header-size-inline-end );
 	}
 
